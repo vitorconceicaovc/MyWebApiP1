@@ -20,6 +20,10 @@ namespace MyWebApi.Controllers
         }
 
         // GET: api/Employees
+        /// <summary>
+        /// Get Employees list
+        /// </summary>
+        /// <returns>List fo all Employees</returns>
         public List<Employee> Get()
         {
             var list = from Employee in dc.Employees orderby Employee.Name select Employee;
@@ -28,6 +32,11 @@ namespace MyWebApi.Controllers
         }
 
         // GET: api/Employees/2
+        /// <summary>
+        /// Get a employee Detail by id
+        /// </summary>
+        /// <param name="id">id</param>
+        /// <returns>All details of especific employee</returns>
         public IHttpActionResult Get(int id)
         {
             var employee = dc.Employees.SingleOrDefault(e => e.Id == id);
@@ -41,6 +50,11 @@ namespace MyWebApi.Controllers
         }
 
         // POST : api/Employees
+        /// <summary>
+        /// Regist a new Employee
+        /// </summary>
+        /// <param name="newEmployee">Employee</param>
+        /// <returns></returns>
         public IHttpActionResult Post([FromBody] Employee newEmployee)
         {
             Employee employee = dc.Employees.FirstOrDefault(e => e.Id == newEmployee.Id);
@@ -73,6 +87,11 @@ namespace MyWebApi.Controllers
         }
 
         // PUT: api/Employees/2
+        /// <summary>
+        /// Edit employee details
+        /// </summary>
+        /// <param name="editedEmployee">Employee</param>
+        /// <returns></returns>
 
         public IHttpActionResult PUT([FromBody] Employee editedEmployee) 
         { 
@@ -107,7 +126,11 @@ namespace MyWebApi.Controllers
         }   
 
         // DELETE: api/Employees/2
-
+        /// <summary>
+        /// Delete Employee by id
+        /// </summary>
+        /// <param name="id">id</param>
+        /// <returns></returns>
         public IHttpActionResult Delete(int id)
         {
             Employee employee = dc.Employees.FirstOrDefault(e => e.Id == id);   

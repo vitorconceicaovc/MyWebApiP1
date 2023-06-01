@@ -19,6 +19,10 @@ namespace MyWebApi.Controllers
 
 
         // GET: api/Categories
+        /// <summary>
+        /// Get categories list
+        /// </summary>
+        /// <returns>List fo all Categories</returns>
         public List<Category> Get()
         {
             var list = from Category in dc.Categories select Category;
@@ -27,6 +31,11 @@ namespace MyWebApi.Controllers
         }
 
         // GET: api/Categories/HR
+        /// <summary>
+        /// Get a category Detail by acronym
+        /// </summary>
+        /// <param name="acronym">acronym</param>
+        /// <returns>All details of especific Category</returns>
         [Route("api/categories/{acronym}")]
         public IHttpActionResult Get(string acronym)
         {
@@ -41,6 +50,11 @@ namespace MyWebApi.Controllers
         }
 
         // POST : api/categories
+        /// <summary>
+        /// Regist a new category
+        /// </summary>
+        /// <param name="newCategory">Category</param>
+        /// <returns></returns>
         public IHttpActionResult Post([FromBody]Category newCategory)
         {
             Category category = dc.Categories.FirstOrDefault(c => c.acronym == newCategory.acronym);
@@ -66,6 +80,11 @@ namespace MyWebApi.Controllers
         }
 
         // PUT: api/categories/HR
+        /// <summary>
+        /// Edit category details
+        /// </summary>
+        /// <param name="newCategory">Category</param>
+        /// <returns></returns>
 
         public IHttpActionResult PUT([FromBody]Category newCategory)
         {
@@ -92,6 +111,11 @@ namespace MyWebApi.Controllers
         }
 
         // Delete: api/categories/HR
+        /// <summary>
+        /// Delete category by acronym
+        /// </summary>
+        /// <param name="acronym">acronym</param>
+        /// <returns></returns>
         [Route("api/categories/{acronym}")]
         public IHttpActionResult Delete(string acronym) 
         { 
