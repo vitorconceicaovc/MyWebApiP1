@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -13,8 +14,8 @@ namespace MyWebApi
     {
         protected void Application_Start()
         {
-			var cors = new System.Web.Http.Cors.EnableCorsAttribute("*", "*", "*");
-			GlobalConfiguration.Configuration.EnableCors(cors);
+
+			
 
 			AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
