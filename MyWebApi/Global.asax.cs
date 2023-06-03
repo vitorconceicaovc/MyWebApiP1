@@ -13,7 +13,10 @@ namespace MyWebApi
     {
         protected void Application_Start()
         {
-            AreaRegistration.RegisterAllAreas();
+			var cors = new System.Web.Http.Cors.EnableCorsAttribute("*", "*", "*");
+			GlobalConfiguration.Configuration.EnableCors(cors);
+
+			AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
